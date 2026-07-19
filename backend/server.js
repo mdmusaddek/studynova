@@ -414,7 +414,11 @@ ${JSON.stringify(history)}
 
         // Update session memory
 
-        req.session.user.memory = updatedMemory;
+        if (!req.session.user) {
+    req.session.user = {};
+}
+
+req.session.user.memory = updatedMemory;
 
 
 
