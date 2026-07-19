@@ -12,7 +12,7 @@ const pdfParse = require("pdf-parse");
 dotenv.config();
 
 const app = express();
-
+app.set("trust proxy", 1);
 const upload = multer({
     dest: "uploads/"
 });
@@ -44,6 +44,7 @@ app.use(session({
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24 * 7,
+        httpOnly:true,
     sameSite: "none",
     secure: true
     }
