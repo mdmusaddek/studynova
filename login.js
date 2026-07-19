@@ -138,7 +138,7 @@ localStorage.removeItem("nova_guest");
 
             setTimeout(() => {
 
-                window.location.href = "NovaOs.html";
+                window.location.href = "index.html";
 
             }, 700);
 
@@ -220,7 +220,7 @@ guestBtn.onclick = () => {
         "true"
     );
 
-    window.location.href = "NovaOs.html";
+    window.location.href = "index.html";
 
 };
 // ----------------------
@@ -247,7 +247,7 @@ window.addEventListener("load", async () => {
                 JSON.stringify(result.user)
             );
 
-            window.location.href = "NovaOs.html";
+            window.location.href = "index.html";
 
         }
 
@@ -274,6 +274,6 @@ guestBtn.onclick = () => {
         "true"
     );
 
-    window.location.href = "NovaOs.html";
+    window.location.href = "index.html";
 
 };
