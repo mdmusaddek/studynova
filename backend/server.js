@@ -172,8 +172,11 @@ app.post("/api/login", async (req, res) => {
             password
         );
 
-        req.session.user = user;
-req.session.memory = user.memory || [];
+        req.session.user = {
+    email: user.email,
+    name: user.name,
+    memory: user.memory || []
+};
 
         res.json({
 
@@ -417,7 +420,8 @@ ${JSON.stringify(history)}
         if (!req.session.user) {
     req.session.user = {};
 }
-
+console.log("CURRENT SESSION USER:");
+console.log(req.session.user);
 req.session.user.memory = updatedMemory;
 
 
