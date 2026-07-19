@@ -1,0 +1,962 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyNova</title>
+
+    <meta name="description" content="NovaOS Lite - Student Productivity Dashboard">
+    <meta name="theme-color" content="#0b0d12">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Main CSS -->
+
+    <link rel="stylesheet" href="main.css">
+
+</head>
+
+<body>
+<div id="loader">
+
+    <div class="loader-logo">
+        StudyNova<br>
+    </div>
+<h3>by Musa</h3>
+    <div class="loader-ring"></div>
+
+    <p>Initializing Nova AI...</p>
+
+</div>
+<div class="app">
+
+<!-- =====================================
+     Sidebar
+====================================== -->
+
+<aside class="sidebar">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+
+            <i class="fa-solid fa-graduation-cap"></i>
+
+        </div>
+
+        <div>
+
+            <h2>StudyNova by Musa</h2>
+
+           
+
+        </div>
+
+    </div>
+    <h3 style="text-align: center"><a href="https://mdmusaddek.github.io/md.musaddek">⚡Boss of Nova AI <br>Click here</a></h3>
+<!-- User Profile Card -->
+
+<div id="userProfile" class="user-profile">
+
+    <div class="avatar" id="userAvatar">
+        G
+    </div>
+
+    <div class="user-info">
+
+        <h3 id="userName">
+            Guest
+        </h3>
+
+        <p id="userEmail">
+            Guest Mode
+        </p>
+
+        <span id="userRole">
+            Guest
+        </span>
+
+    </div>
+
+</div>
+    <nav class="sidebar-nav">
+
+        <button class="nav-btn active"
+                data-page="dashboard">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span>Dashboard</span>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="notes">
+
+            <i class="fa-solid fa-note-sticky"></i>
+
+            <span>Notes</span>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="gpa">
+
+            <i class="fa-solid fa-calculator"></i>
+
+            <span>GPA Calculator</span>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="cgpa">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <span>CGPA Calculator</span>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="chat">
+
+            <i class="fa-solid fa-robot"></i>
+
+            <span>AI Chat</span>
+
+        </button>
+
+        <button class="nav-btn"
+                data-page="pdf">
+
+            <i class="fa-solid fa-file-pdf"></i>
+
+            <span>PDF Summary</span>
+
+        </button>
+
+    </nav>
+
+</aside>
+
+<!-- =====================================
+     Main Content
+====================================== -->
+
+<main class="content">
+
+<header class="topbar">
+
+<div class="topbar-left">
+
+<h1 id="pageTitle">
+
+Dashboard
+
+</h1>
+
+<p>
+
+Welcome! 👋
+
+</p>
+
+</div>
+
+<div class="topbar-right">
+
+<div class="search-box">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+<input
+type="text"
+placeholder="Search...">
+
+</div>
+
+<button class="theme-btn">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+<div class="profile">
+
+<div class="avatar">
+
+M
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<!-- =====================================
+     Dashboard
+====================================== -->
+
+<section
+class="page active"
+id="dashboard">
+
+<div class="welcome-box">
+
+<h2>
+
+Student Productivity Dashboard
+
+</h2>
+
+<p>
+
+Manage your notes, calculate GPA & CGPA, summarize PDFs,
+and access AI tools from one clean dashboard.
+
+</p>
+
+</div>
+
+<div class="stats">
+
+<div class="stat">
+
+<h4>Total Notes</h4>
+
+<span id="totalNotes">
+
+0
+
+</span>
+
+</div>
+
+
+
+<div class="stat">
+
+<h4>AI Status</h4>
+
+<span>
+
+Ready
+
+</span>
+
+</div>
+
+</div>
+
+<div class="section-header">
+
+<h2>
+
+Quick Access
+
+</h2>
+
+<p>
+
+Choose a module to get started
+
+</p>
+
+</div>
+
+<div class="grid">
+        <!-- Notes Card -->
+
+    <article class="card module-card" data-page="notes">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-note-sticky"></i>
+        </div>
+
+        <h3>Notes</h3>
+
+        <p>
+            Create, edit, pin and organize your study notes with automatic saving.
+        </p>
+
+        <button class="card-btn" data-page="notes">
+            Open Notes
+        </button>
+
+    </article>
+
+
+    <!-- GPA Card -->
+
+    <article class="card module-card" data-page="gpa">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-calculator"></i>
+        </div>
+
+        <h3>GPA Calculator</h3>
+
+        <p>
+            Calculate your semester GPA using subject credits and grades.
+        </p>
+
+        <button class="card-btn" data-page="gpa">
+            Calculate GPA
+        </button>
+
+    </article>
+
+
+    <!-- CGPA Card -->
+
+    <article class="card module-card" data-page="cgpa">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-chart-line"></i>
+        </div>
+
+        <h3>CGPA Calculator</h3>
+
+        <p>
+            Track your cumulative academic performance across semesters.
+        </p>
+
+        <button class="card-btn" data-page="cgpa">
+            View CGPA
+        </button>
+
+    </article>
+
+
+    <!-- AI Chat Card -->
+
+    <article class="card module-card" data-page="chat">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-robot"></i>
+        </div>
+
+        <h3>AI Chat</h3>
+
+        <p>
+            Ask questions, brainstorm ideas and get study assistance.
+        </p>
+
+        <button class="card-btn" data-page="chat">
+            Open AI Chat
+        </button>
+
+    </article>
+
+
+    <!-- PDF Summary Card -->
+
+    <article class="card module-card" data-page="pdf">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-file-pdf"></i>
+        </div>
+
+        <h3>PDF Summary</h3>
+
+        <p>
+            Upload a PDF and generate a concise summary for faster learning.
+        </p>
+
+        <button class="card-btn" data-page="pdf">
+            Open PDF Tool
+        </button>
+
+    </article>
+
+
+    <!-- Quick Actions Card -->
+
+    <article class="card module-card">
+
+        <div class="card-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <h3>Quick Actions</h3>
+
+        <p>
+            Jump to your most-used study tools with a single click.
+        </p>
+
+        <div class="quick-actions">
+
+            <button class="mini-btn" data-page="notes">
+                New Note
+            </button>
+
+            <button class="mini-btn" data-page="gpa">
+                GPA
+            </button>
+
+            <button class="mini-btn" data-page="chat">
+                AI
+            </button>
+
+        </div>
+
+    </article>
+
+</div>
+
+</section>
+
+<!-- ========= Dashboard End ========= -->
+<!-- =====================================
+     Notes Module
+====================================== -->
+
+<section class="page" id="notes">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>Notes</h2>
+
+            <p>Create and organize your study notes.</p>
+
+        </div>
+
+        <button id="newNoteBtn" class="new-note-btn">
+    <i class="fa-solid fa-plus"></i>
+    New Note
+</button>
+
+    </div>
+
+    <div class="notes-wrapper">
+
+        <!-- Sidebar -->
+
+        <aside class="notes-sidebar">
+
+            <div class="notes-search">
+
+                <input
+                    type="search"
+                    id="searchNotes"
+                    placeholder="Search notes...">
+
+            </div>
+
+            <div class="notes-list" id="notesList">
+
+                <!-- Note Item -->
+
+                <article class="note-item active">
+
+                    <div class="note-title">
+
+                        Web Development
+
+                    </div>
+
+                    <div class="note-preview">
+
+                        HTML structure, semantic tags and responsive layout...
+
+                    </div>
+
+                </article>
+
+                <article class="note-item">
+
+                    <div class="note-title">
+
+                        Database
+
+                    </div>
+
+                    <div class="note-preview">
+
+                        Learn SQL JOIN, GROUP BY and Indexing...
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </aside>
+
+        <!-- Editor -->
+
+        <section class="notes-editor">
+
+            <input
+                type="text"
+                id="noteTitle"
+                placeholder="Note title...">
+
+          <button data-command="bold">B (Bold)</button>
+<button data-command="italic">I (Italic)</button>
+<button data-command="underline">U (Underline)</button>
+<button data-command="insertUnorderedList">• List</button>
+<button data-command="formatBlock" data-value="h1">H1</button>
+
+          <div
+    id="noteContent"
+    class="note-editor"
+    contenteditable="true"
+    spellcheck="true"
+    data-placeholder="Tap + New Note and Start writing your note...">
+</div>
+
+            <div class="note-meta">
+
+                <span class="date-badge">
+
+                    Last Edited :
+                    <span id="lastEdited">
+
+                        Today
+
+                    </span>
+
+                </span>
+
+                <span class="note-tag">
+
+                    Study
+
+                </span>
+
+            </div>
+
+            <div class="notes-actions">
+
+                
+
+                <button id="pinNoteBtn" class="pin-note-btn">
+    <i class="fa-solid fa-thumbtack"></i>
+    Pin
+</button>
+
+<button id="deleteNoteBtn" class="delete-note-btn">
+    <i class="fa-solid fa-trash"></i>
+    Delete
+</button>
+
+<button id="saveNoteBtn" class="save-note-btn">
+    <i class="fa-solid fa-floppy-disk"></i>
+    Save
+</button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</section>
+
+<!-- ========= Notes Module End ========= -->
+<!-- =====================================
+     GPA Calculator
+====================================== -->
+
+<section class="page" id="gpa">
+
+    <div class="section-header">
+
+        <div>
+            <h2>SSC GPA Calculator</h2>
+            <p>Calculate your SSC GPA (Bangladesh Education Board).</p>
+        </div>
+
+        <button id="addSubject" class="new-note-btn">
+            <i class="fa-solid fa-plus"></i>
+            Add Subject
+        </button>
+
+    </div>
+
+    <div class="glass-panel">
+
+        <div class="gpa-table">
+
+            <div class="gpa-head">
+                <span>Subject</span>
+                <span>Grade</span>
+                <span>Action</span>
+            </div>
+
+            <div id="subjectsContainer">
+
+                <div class="subject-row">
+
+                    <input
+                        type="text"
+                        placeholder="Subject Name">
+
+                    <select class="grade">
+
+                        <option value="5">A+</option>
+                        <option value="4">A</option>
+                        <option value="3.5">A-</option>
+                        <option value="3">B</option>
+                        <option value="2">C</option>
+                        <option value="1">D</option>
+                        <option value="0">F</option>
+
+                    </select>
+
+                    <button class="delete-row">
+                        <i class="fa-solid fa-trash"></i>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="result-panel">
+
+            <div class="optional-subject">
+
+                <h3>Optional Subject (4th Subject)</h3>
+
+                <select id="optionalGrade">
+
+                    <option value="">Not Selected</option>
+
+                    <option value="5">A+</option>
+                    <option value="4">A</option>
+                    <option value="3.5">A-</option>
+                    <option value="3">B</option>
+                    <option value="2">C</option>
+                    <option value="1">D</option>
+                    <option value="0">F</option>
+
+                </select>
+
+            </div>
+
+            <br>
+
+            <div class="gpa-result-card">
+
+                <h3>Your SSC GPA</h3>
+
+                <span id="gpaResult">0.00</span>
+
+            </div>
+
+            <br>
+
+            <button id="calculateGPA">
+                Calculate GPA
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =====================================
+     CGPA Calculator
+====================================== -->
+
+<section class="page" id="cgpa">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>CGPA Calculator</h2>
+
+            <p>
+
+                Track your cumulative GPA.
+
+            </p>
+
+        </div>
+<div id="semestersContainer"></div>
+        <button id="addSemester" class="new-note-btn">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Add Semester
+
+        </button>
+
+    </div>
+
+    <div class="glass-panel">
+
+        <div class="cgpa-table">
+
+            <div class="cgpa-head">
+
+                <span>Semester</span>
+                <span>Credits</span>
+                <span>GPA</span>
+                <span>Action</span>
+
+            </div>
+
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="result-panel">
+
+            <div>
+
+                <h3>Overall CGPA</h3>
+
+                <span id="cgpaResult">
+
+                    0.00
+
+                </span>
+
+            </div>
+
+            <button id="calculateCGPA">
+
+                Calculate CGPA
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========= GPA & CGPA End ========= -->
+<!-- =====================================
+     AI Chat Module
+====================================== -->
+
+<section class="page" id="chat">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>AI Chat Assistant</h2>
+
+            <p>
+                Ask questions, summarize topics and get study help.
+            </p>
+
+        </div>
+
+        <button id="clearChat" class="new-note-btn">
+
+            <i class="fa-solid fa-trash"></i>
+
+            Clear Chat
+
+        </button>
+
+    </div>
+
+    <div class="chat-layout">
+
+        <!-- Chat Window -->
+
+        <div class="chat-window" id="chatWindow">
+
+            <div class="message ai">
+
+                <div class="message-avatar">
+
+                    <i class="fa-solid fa-robot"></i>
+
+                </div>
+
+                <div class="message-body">
+
+                    <h4>Nova AI by Musa</h4>
+
+                    <p>
+                        Assalamualaikum! 👋
+                        How can I help you with your studies today?
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Input Area -->
+
+        <div class="chat-input-area">
+
+            <textarea
+                id="chatInput"
+                placeholder="Type your question..."></textarea>
+
+            <button id="sendMessage">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+                Send
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========= AI Chat End ========= -->
+<!-- =====================================
+     PDF Summary Module
+====================================== -->
+
+<section class="page" id="pdf">
+
+    <div class="section-header">
+
+        <div>
+
+            <h2>PDF Summary</h2>
+
+            <p>Upload a PDF and generate a quick summary.</p>
+
+        </div>
+
+    </div>
+
+    <div class="pdf-layout">
+
+        <!-- Upload Panel -->
+
+        <div class="glass-panel">
+
+            <div class="upload-area" id="uploadArea">
+
+                <i class="fa-solid fa-file-pdf upload-icon"></i>
+
+                <h3>Drop PDF Here</h3>
+
+                <p>or click to browse your device</p>
+
+                <input
+                    type="file"
+                    id="pdfFile"
+                    accept=".pdf"
+                    hidden>
+
+                <button
+                    class="new-note-btn"
+                    onclick="document.getElementById('pdfFile').click()">
+
+                    Choose PDF
+ </button>
+               
+            </div>
+
+        </div>
+
+        <!-- File Info -->
+
+        <div class="glass-panel">
+
+            <h3>Selected File</h3>
+
+            <div class="file-info">
+
+                <div>
+
+                    <strong id="pdfFileName">
+
+                        No file selected
+
+                    </strong>
+
+                </div>
+
+                <small id="fileSize">
+
+                    --
+
+                </small>
+
+            </div>
+
+        </div>
+
+        <!-- Summary -->
+
+        <div class="glass-panel">
+
+            <div class="summary-header">
+
+                <h3>Summary</h3>
+
+                <button id="generateSummary">
+
+                    Generate Summary
+
+                </button>
+
+            </div>
+
+            <div
+                class="summary-output"
+                id="summaryOutput">
+<div class="key-points">
+
+    <h4>Key Points</h4>
+
+    <ul id="keyPoints">
+
+        <li>No key points yet.</li>
+
+    </ul>
+
+</div>
+                Upload a PDF to generate an AI summary.
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<script src="app.js"></script>
+<script src="notes.js"></script>
+<script src="gpa.js"></script>
+<script src="cgpa.js"></script>
+<script src="ai.js"></script>
+<script>
+</script>
+<script src="pdf.js"></script>
+<div id="toastContainer"></div>
+</body>
+</html>

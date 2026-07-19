@@ -1,0 +1,2919 @@
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 1)
+   Foundation + Variables + Layout
+===================================================== */
+
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ===============================
+   CSS Variables
+================================ */
+
+:root{
+
+    --bg:#0b0d12;
+    --surface:#141821;
+    --surface-2:#1c2230;
+
+    --glass:rgba(255,255,255,.06);
+
+    --border:rgba(255,255,255,.08);
+
+    --text:#ffffff;
+    --text-light:#cfd4df;
+
+    --primary:#5da9ff;
+    --primary-hover:#7cbcff;
+
+    --success:#35d07f;
+    --danger:#ff5c7c;
+    --warning:#ffc857;
+
+    --radius:18px;
+
+    --shadow:
+        0 15px 40px rgba(0,0,0,.45);
+
+    --transition:.30s ease;
+
+}
+
+/* ===============================
+   Reset
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    font-family:"Inter",sans-serif;
+
+    background:linear-gradient(
+        135deg,
+        #090b11,
+        #111827,
+        #171d2d
+    );
+
+    color:var(--text);
+
+    min-height:100vh;
+
+}
+
+/* ===============================
+   Scrollbar
+================================ */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#0d1017;
+
+}
+
+/* ===============================
+   App Layout
+================================ */
+
+.app{
+
+    display:flex;
+
+    min-height:100vh;
+
+}
+
+/* ===============================
+   Sidebar
+================================ */
+
+.sidebar{
+
+    width:260px;
+
+    background:rgba(10,12,18,.75);
+
+    backdrop-filter:blur(20px);
+
+    border-right:1px solid var(--border);
+
+    display:flex;
+
+    flex-direction:column;
+
+    padding:28px;
+
+}
+
+.logo{
+
+    margin-bottom:40px;
+
+}
+
+.logo h2{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+.logo span{
+
+    color:var(--primary);
+
+    font-size:14px;
+
+}
+
+/* ===============================
+   Navigation
+================================ */
+
+.sidebar nav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+}
+
+.nav-btn{
+
+    background:transparent;
+
+    border:none;
+
+    color:var(--text-light);
+
+    text-align:left;
+
+    padding:15px 18px;
+
+    border-radius:14px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+    font-size:15px;
+
+    font-weight:500;
+
+}
+
+.nav-btn:hover{
+
+    background:var(--glass);
+
+    color:#fff;
+
+}
+
+.nav-btn.active{
+
+    background:var(--primary);
+
+    color:#fff;
+
+}
+
+/* ===============================
+   Content
+================================ */
+
+.content{
+
+    flex:1;
+
+    padding:40px;
+
+}
+
+/* ===============================
+   Topbar
+================================ */
+
+.topbar{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.topbar h1{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+/* ===============================
+   Pages
+================================ */
+
+.page{
+
+    display:none;
+
+}
+
+.page.active{
+
+    display:block;
+
+}
+
+/* ===============================
+   Dashboard Grid
+================================ */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(auto-fit,minmax(260px,1fr));
+
+    gap:25px;
+
+}
+
+/* ===============================
+   Glass Card
+================================ */
+
+.card{
+
+    background:var(--glass);
+
+    border:1px solid var(--border);
+
+    border-radius:var(--radius);
+
+    backdrop-filter:blur(18px);
+
+    padding:28px;
+
+    box-shadow:var(--shadow);
+
+    transition:var(--transition);
+
+}
+
+.card:hover{
+
+    transform:translateY(-6px);
+
+    border-color:var(--primary);
+
+}
+
+.card h3{
+
+    margin-bottom:12px;
+
+    font-size:22px;
+
+}
+
+.card p{
+
+    color:var(--text-light);
+
+    line-height:1.7;
+
+}
+
+/* ===============================
+   Buttons
+================================ */
+
+button{
+
+    font-family:inherit;
+
+}
+
+button:not(.nav-btn){
+
+    background:var(--primary);
+
+    color:white;
+
+    border:none;
+
+    padding:14px 24px;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    transition:var(--transition);
+
+}
+
+button:not(.nav-btn):hover{
+
+    background:var(--primary-hover);
+
+}
+
+/* ===============================
+   Inputs
+================================ */
+
+input,
+textarea,
+select{
+
+    width:100%;
+
+    background:var(--surface);
+
+    border:1px solid var(--border);
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    outline:none;
+
+    margin-top:12px;
+
+    margin-bottom:18px;
+
+    transition:.3s;
+
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    border-color:var(--primary);
+
+    box-shadow:0 0 15px rgba(93,169,255,.25);
+
+}
+
+textarea{
+
+    resize:vertical;
+
+    min-height:220px;
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 2A)
+   Dashboard + Section + Glass Panels
+===================================================== */
+
+
+/* ============================
+   Section Header
+============================ */
+
+.section-header{
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    margin-bottom:28px;
+
+}
+
+.section-header h2{
+
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:.3px;
+
+}
+
+.section-header p{
+
+    color:var(--text-light);
+    font-size:15px;
+
+}
+
+
+/* ============================
+   Dashboard Grid
+============================ */
+
+.grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:24px;
+
+}
+
+
+/* ============================
+   Dashboard Card
+============================ */
+
+.card{
+
+    position:relative;
+
+    overflow:hidden;
+
+    min-height:190px;
+
+    background:
+    linear-gradient(
+    145deg,
+    rgba(255,255,255,.06),
+    rgba(255,255,255,.03)
+    );
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:26px;
+
+    transition:.35s;
+
+    backdrop-filter:blur(22px);
+
+    cursor:pointer;
+
+}
+
+
+/* Top Glow */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:-90px;
+    right:-90px;
+
+    width:180px;
+    height:180px;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(93,169,255,.28),
+    transparent 70%
+    );
+
+    transition:.4s;
+
+}
+
+
+/* Bottom Glow */
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:-80px;
+    left:-80px;
+
+    width:160px;
+    height:160px;
+
+    background:
+    radial-gradient(
+    circle,
+    rgba(255,255,255,.08),
+    transparent 70%
+    );
+
+}
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+    0 20px 50px rgba(0,0,0,.45),
+
+    0 0 30px rgba(93,169,255,.20);
+
+}
+
+
+.card:hover::before{
+
+    transform:scale(1.25);
+
+}
+
+
+/* ============================
+   Card Content
+============================ */
+
+.card h3{
+
+    font-size:24px;
+
+    margin-bottom:16px;
+
+    font-weight:700;
+
+}
+
+
+.card p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+/* ============================
+   Small Badge
+============================ */
+
+.card .badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:6px 14px;
+
+    border-radius:30px;
+
+    background:rgba(93,169,255,.12);
+
+    color:var(--primary);
+
+    font-size:13px;
+
+    margin-top:20px;
+
+}
+
+
+/* ============================
+   Glass Panel
+============================ */
+
+.glass-panel{
+
+    background:
+
+    rgba(255,255,255,.05);
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:28px;
+
+    backdrop-filter:blur(18px);
+
+    box-shadow:
+
+    0 12px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* ============================
+   Divider
+============================ */
+
+.divider{
+
+    height:1px;
+
+    width:100%;
+
+    margin:28px 0;
+
+    background:
+
+    rgba(255,255,255,.08);
+
+}
+
+
+/* ============================
+   Dashboard Welcome Box
+============================ */
+
+.welcome-box{
+
+    margin-bottom:30px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    rgba(93,169,255,.18),
+
+    rgba(255,255,255,.05)
+
+    );
+
+    border-radius:24px;
+
+    padding:34px;
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+}
+
+
+.welcome-box h2{
+
+    font-size:34px;
+
+    margin-bottom:12px;
+
+}
+
+
+.welcome-box p{
+
+    color:var(--text-light);
+
+    line-height:1.8;
+
+}
+
+
+/* ============================
+   Dashboard Stats
+============================ */
+
+.stats{
+
+    display:grid;
+
+    grid-template-columns:
+
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:20px;
+
+    margin-top:30px;
+
+}
+
+
+.stat{
+
+    background:
+
+    rgba(255,255,255,.04);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    border:
+
+    1px solid rgba(255,255,255,.06);
+
+}
+
+
+.stat h4{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    margin-bottom:12px;
+
+}
+
+
+.stat span{
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+
+/* ============================
+   Fade Animation
+============================ */
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+.card,
+.glass-panel,
+.welcome-box{
+
+    animation:
+
+    fadeUp .6s ease;
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 2B-1)
+   Notes Module - Layout + Toolbar + Search
+===================================================== */
+
+/* ============================
+   Notes Section
+============================ */
+
+#notes{
+
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+
+}
+
+
+/* ============================
+   Notes Container
+============================ */
+
+.notes-wrapper{
+
+    display:grid;
+
+    grid-template-columns:
+
+    320px 1fr;
+
+    gap:24px;
+
+}
+
+
+/* ============================
+   Notes Sidebar
+============================ */
+
+.notes-sidebar{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(18px);
+
+    padding:20px;
+
+}
+
+
+/* ============================
+   Search Box
+============================ */
+
+.notes-search{
+
+    position:relative;
+
+    margin-bottom:18px;
+
+}
+
+.notes-search input{
+
+    margin:0;
+
+    padding:14px 16px;
+
+    border-radius:14px;
+
+    background:rgba(255,255,255,.04);
+
+}
+
+.notes-search input::placeholder{
+
+    color:#9ea7b5;
+
+}
+
+
+/* ============================
+   New Note Button
+============================ */
+
+.new-note-btn{
+
+    width:100%;
+
+    margin-bottom:20px;
+
+}
+
+
+/* ============================
+   Notes List
+============================ */
+
+.notes-list{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:14px;
+
+    max-height:600px;
+
+    overflow-y:auto;
+
+}
+
+
+/* ============================
+   Single Note Item
+============================ */
+
+.note-item{
+
+    padding:16px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.05);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.note-item:hover{
+
+    transform:translateY(-3px);
+
+    border-color:var(--primary);
+
+    background:rgba(93,169,255,.08);
+
+}
+
+.note-item.active{
+
+    border-color:var(--primary);
+
+    background:rgba(93,169,255,.12);
+
+}
+
+
+/* ============================
+   Note Title
+============================ */
+
+.note-title{
+
+    font-size:17px;
+
+    font-weight:600;
+
+    margin-bottom:8px;
+
+}
+
+
+/* ============================
+   Note Preview
+============================ */
+
+.note-preview{
+
+    color:var(--text-light);
+
+    font-size:14px;
+
+    line-height:1.6;
+
+    display:-webkit-box;
+
+    -webkit-line-clamp:2;
+
+    -webkit-box-orient:vertical;
+
+    overflow:hidden;
+
+}
+
+
+/* ============================
+   Notes Editor Panel
+============================ */
+
+.notes-editor{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:20px;
+
+    backdrop-filter:blur(18px);
+
+    padding:28px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}
+
+
+/* ============================
+   Editor Title
+============================ */
+
+.editor-title{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+/* ============================
+   Editor Toolbar
+============================ */
+
+.editor-toolbar{
+
+    display:flex;
+
+    gap:12px;
+
+    flex-wrap:wrap;
+
+    padding-bottom:14px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.editor-toolbar button{
+
+    background:rgba(255,255,255,.06);
+
+    color:#fff;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    padding:10px 14px;
+
+    border-radius:10px;
+
+}
+
+.editor-toolbar button:hover{
+
+    background:var(--primary);
+
+}
+
+
+/* ============================
+   Editor Textarea
+============================ */
+
+.notes-editor textarea{
+
+    flex:1;
+
+    min-height:420px;
+
+    margin:0;
+
+    line-height:1.8;
+
+    font-size:16px;
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 2B-2)
+   Notes Module - Actions + Cards + Effects
+===================================================== */
+
+
+/* ============================
+   Editor Actions
+============================ */
+
+.notes-actions{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:14px;
+
+    flex-wrap:wrap;
+
+}
+
+
+/* Save Note Button */
+
+.save-note-btn{
+
+    background:
+
+    linear-gradient(
+        135deg,
+        #5da9ff,
+        #3276ff
+    );
+
+}
+
+
+/* Delete Button */
+
+.delete-note-btn{
+
+    background:
+
+    rgba(255,92,124,.15);
+
+    color:#ff7d98;
+
+    border:
+
+    1px solid rgba(255,92,124,.25);
+
+}
+
+
+.delete-note-btn:hover{
+
+    background:#ff5c7c;
+
+    color:white;
+
+}
+
+
+/* Pin Button */
+
+.pin-note-btn{
+
+    background:
+
+    rgba(255,200,87,.12);
+
+    color:#ffc857;
+
+    border:
+
+    1px solid rgba(255,200,87,.25);
+
+}
+
+
+.pin-note-btn:hover{
+
+    background:#ffc857;
+
+    color:#111;
+
+}
+
+
+/* ============================
+   Note Cards
+============================ */
+
+.note-card{
+
+    position:relative;
+
+    padding:22px;
+
+    border-radius:20px;
+
+    background:
+
+    linear-gradient(
+
+    145deg,
+
+    rgba(255,255,255,.07),
+
+    rgba(255,255,255,.03)
+
+    );
+
+    border:
+
+    1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+
+    overflow:hidden;
+
+}
+
+
+.note-card:hover{
+
+    transform:
+
+    translateY(-5px);
+
+    border-color:
+
+    rgba(93,169,255,.7);
+
+    box-shadow:
+
+    0 15px 40px rgba(0,0,0,.35);
+
+}
+
+
+/* Glow */
+
+.note-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:120px;
+
+    height:120px;
+
+    right:-50px;
+
+    top:-50px;
+
+    background:
+
+    radial-gradient(
+
+    circle,
+
+    rgba(93,169,255,.25),
+
+    transparent 70%
+
+    );
+
+}
+
+
+/* ============================
+   Note Header
+============================ */
+
+.note-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:14px;
+
+}
+
+
+.note-header h3{
+
+    font-size:20px;
+
+}
+
+
+/* ============================
+   Note Meta
+============================ */
+
+.note-meta{
+
+    display:flex;
+
+    gap:12px;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    margin-top:16px;
+
+    color:#9ea7b5;
+
+    font-size:13px;
+
+}
+
+
+/* Date Badge */
+
+.date-badge{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:
+
+    rgba(255,255,255,.06);
+
+}
+
+
+/* Tag */
+
+.note-tag{
+
+    padding:6px 12px;
+
+    border-radius:20px;
+
+    background:
+
+    rgba(93,169,255,.15);
+
+    color:var(--primary);
+
+}
+
+
+/* ============================
+   Favorite Note
+============================ */
+
+.note-card.favorite{
+
+    border-color:
+
+    rgba(255,200,87,.5);
+
+}
+
+
+.note-card.favorite::after{
+
+    content:"★";
+
+    position:absolute;
+
+    top:14px;
+
+    right:18px;
+
+    color:#ffc857;
+
+    font-size:22px;
+
+}
+
+
+/* ============================
+   Empty Notes State
+============================ */
+
+.empty-notes{
+
+    min-height:300px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+}
+
+
+.empty-notes h3{
+
+    font-size:24px;
+
+    color:white;
+
+    margin-bottom:12px;
+
+}
+
+
+.empty-notes p{
+
+    max-width:350px;
+
+    line-height:1.7;
+
+}
+
+
+/* ============================
+   Floating Action Button
+============================ */
+
+.notes-fab{
+
+    position:fixed;
+
+    right:35px;
+
+    bottom:35px;
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:28px;
+
+    background:
+
+    linear-gradient(
+
+    135deg,
+
+    #5da9ff,
+
+    #3276ff
+
+    );
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.45);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+.notes-fab:hover{
+
+    transform:
+
+    scale(1.1)
+
+    rotate(5deg);
+
+}
+
+
+/* ============================
+   Smooth Note Animation
+============================ */
+
+@keyframes noteAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+
+.note-card,
+.note-item{
+
+    animation:
+
+    noteAppear .45s ease;
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 2C)
+   Dashboard Components + Notes Complete
+===================================================== */
+
+/* ==========================================
+   Module Card
+========================================== */
+
+.module-card{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    gap:18px;
+    min-height:260px;
+}
+
+.module-card .card-icon{
+
+    width:64px;
+    height:64px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(93,169,255,.25),
+        rgba(93,169,255,.08)
+    );
+
+    border:1px solid rgba(93,169,255,.25);
+
+    font-size:28px;
+    color:var(--primary);
+
+    margin-bottom:10px;
+
+    transition:.35s;
+
+}
+
+.module-card:hover .card-icon{
+
+    transform:rotate(-8deg) scale(1.08);
+
+    box-shadow:
+    0 10px 30px rgba(93,169,255,.30);
+
+}
+
+
+/* ==========================================
+   Card Button
+========================================== */
+
+.card-btn{
+
+    width:100%;
+
+    margin-top:auto;
+
+    border-radius:14px;
+
+    padding:14px 20px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   Quick Action Buttons
+========================================== */
+
+.quick-actions{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:10px;
+
+}
+
+.mini-btn{
+
+    flex:1;
+
+    min-width:90px;
+
+    padding:10px 14px;
+
+    border-radius:12px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.mini-btn:hover{
+
+    background:var(--primary);
+
+    transform:translateY(-3px);
+
+}
+
+
+/* ==========================================
+   Notes Scroll
+========================================== */
+
+.notes-list::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+.notes-list::-webkit-scrollbar-thumb{
+
+    background:rgba(93,169,255,.55);
+
+    border-radius:20px;
+
+}
+
+
+/* ==========================================
+   Empty State
+========================================== */
+
+.empty-state{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:320px;
+
+    text-align:center;
+
+    color:var(--text-light);
+
+    padding:30px;
+
+}
+
+.empty-state i{
+
+    font-size:56px;
+
+    color:var(--primary);
+
+    margin-bottom:20px;
+
+}
+
+.empty-state h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+.empty-state p{
+
+    max-width:360px;
+
+    line-height:1.8;
+
+}
+
+
+/* ==========================================
+   Floating Action Button
+========================================== */
+
+.fab{
+
+    position:fixed;
+
+    right:28px;
+
+    bottom:28px;
+
+    width:64px;
+
+    height:64px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:26px;
+
+    background:linear-gradient(
+        135deg,
+        #5da9ff,
+        #3276ff
+    );
+
+    color:white;
+
+    border:none;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 15px 35px rgba(0,0,0,.40);
+
+    transition:.35s;
+
+    z-index:999;
+
+}
+
+.fab:hover{
+
+    transform:
+        scale(1.08)
+        rotate(8deg);
+
+}
+
+
+/* ==========================================
+   Fade Animation
+========================================== */
+
+@keyframes fadeInUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
+
+.page.active{
+
+    animation:
+    fadeInUp .45s ease;
+
+}
+
+
+/* ==========================================
+   Tablet
+========================================== */
+
+@media (max-width:992px){
+
+    .notes-wrapper{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .sidebar{
+
+        width:220px;
+
+    }
+
+}
+
+
+/* ==========================================
+   Mobile
+========================================== */
+
+@media (max-width:768px){
+
+    .app{
+
+        flex-direction:column;
+
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        border-right:none;
+
+        border-bottom:1px solid var(--border);
+
+        padding:20px;
+
+    }
+
+    .sidebar-nav{
+
+        display:grid;
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+
+    }
+
+    .content{
+
+        padding:20px;
+
+    }
+
+    .topbar{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:20px;
+
+    }
+
+    .topbar-right{
+
+        width:100%;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+    }
+
+    .stats{
+
+        grid-template-columns:1fr 1fr;
+
+    }
+
+    .grid{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .notes-actions{
+
+        flex-direction:column;
+
+    }
+
+}
+
+
+/* ==========================================
+   Small Phones
+========================================== */
+
+@media (max-width:480px){
+
+    .stats{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .logo h2{
+
+        font-size:24px;
+
+    }
+
+    .welcome-box h2{
+
+        font-size:26px;
+
+    }
+
+    .section-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:16px;
+
+    }
+
+    .new-note-btn{
+
+        width:100%;
+
+    }
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 3)
+   GPA + CGPA Module
+===================================================== */
+
+/* ==========================================
+   GPA & CGPA Table
+========================================== */
+
+.gpa-table,
+.cgpa-table{
+
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+
+}
+
+
+/* ==========================================
+   Table Header
+========================================== */
+
+.gpa-head,
+.cgpa-head{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr
+    1fr
+    1fr
+    80px;
+
+    gap:15px;
+
+    padding:15px 20px;
+
+    background:rgba(255,255,255,.05);
+
+    border-radius:14px;
+
+    color:var(--text-light);
+
+    font-weight:600;
+
+}
+
+
+/* ==========================================
+   Subject Row
+========================================== */
+
+.subject-row,
+.semester-row{
+
+    display:grid;
+
+    grid-template-columns:
+    2fr
+    1fr
+    1fr
+    80px;
+
+    gap:15px;
+
+    align-items:center;
+
+    margin-bottom:15px;
+
+}
+
+
+/* ==========================================
+   Inputs
+========================================== */
+
+.subject-row input,
+.subject-row select,
+.semester-row input{
+
+    margin:0;
+
+}
+
+
+/* ==========================================
+   Delete Button
+========================================== */
+
+.delete-row{
+
+    width:48px;
+
+    height:48px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:rgba(255,92,124,.12);
+
+    color:#ff6b87;
+
+    cursor:pointer;
+
+    transition:.30s;
+
+}
+
+.delete-row:hover{
+
+    background:#ff5c7c;
+
+    color:#fff;
+
+    transform:scale(1.08);
+
+}
+
+
+/* ==========================================
+   Result Panel
+========================================== */
+
+.result-panel{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:20px;
+
+    margin-top:20px;
+
+    padding:22px;
+
+    border-radius:18px;
+
+    background:
+
+    rgba(255,255,255,.05);
+
+}
+
+
+.result-panel h3{
+
+    margin-bottom:8px;
+
+}
+
+
+.result-panel span{
+
+    font-size:38px;
+
+    font-weight:700;
+
+    color:var(--primary);
+
+}
+
+
+/* ==========================================
+   Animation
+========================================== */
+
+.subject-row,
+.semester-row{
+
+    animation:fadeInUp .35s ease;
+
+}
+
+
+/* ==========================================
+   Responsive
+========================================== */
+
+@media(max-width:768px){
+
+.gpa-head,
+.cgpa-head{
+
+display:none;
+
+}
+
+.subject-row,
+.semester-row{
+
+grid-template-columns:1fr;
+
+}
+
+.delete-row{
+
+width:100%;
+
+}
+
+.result-panel{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+}
+
+.result-panel button{
+
+width:100%;
+
+}
+
+}
+/* =====================================================
+   NovaOS Lite
+   main.css (Part 4)
+   AI Chat Module
+===================================================== */
+
+/* Chat Layout */
+
+.chat-layout{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:20px;
+
+}
+
+/* Chat Window */
+
+.chat-window{
+
+    height:600px;
+
+    overflow-y:auto;
+
+    padding:25px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(20px);
+
+}
+
+/* Message */
+
+.message{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-bottom:20px;
+
+    animation:fadeInUp .35s ease;
+
+}
+
+/* User Message */
+
+.message.user{
+
+    flex-direction:row-reverse;
+
+}
+
+/* Avatar */
+
+.message-avatar{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #5da9ff,
+        #3276ff
+    );
+
+    color:white;
+
+    flex-shrink:0;
+
+}
+
+/* Bubble */
+
+.message-body{
+
+    max-width:75%;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:rgba(255,255,255,.06);
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
+
+.message.user .message-body{
+
+    background:rgba(93,169,255,.18);
+
+}
+
+.message-body h4{
+
+    margin-bottom:8px;
+
+}
+
+.message-body p{
+
+    line-height:1.8;
+
+    color:var(--text-light);
+
+}
+
+/* Input Area */
+
+.chat-input-area{
+
+    display:flex;
+
+    gap:15px;
+
+    align-items:flex-end;
+
+}
+
+.chat-input-area textarea{
+
+    min-height:70px;
+
+    margin:0;
+
+    resize:none;
+
+}
+
+.chat-input-area button{
+
+    height:70px;
+
+    min-width:150px;
+
+}
+
+/* Typing Indicator */
+
+.typing{
+
+    display:flex;
+
+    gap:6px;
+
+    padding:14px 18px;
+
+}
+
+.typing span{
+
+    width:8px;
+
+    height:8px;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    animation:typing .8s infinite;
+
+}
+
+.typing span:nth-child(2){
+
+    animation-delay:.15s;
+
+}
+
+.typing span:nth-child(3){
+
+    animation-delay:.3s;
+
+}
+
+@keyframes typing{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        transform:translateY(-5px);
+
+        opacity:1;
+
+    }
+
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .chat-window{
+
+        height:450px;
+
+    }
+
+    .chat-input-area{
+
+        flex-direction:column;
+
+    }
+
+    .chat-input-area button{
+
+        width:100%;
+
+        height:55px;
+
+    }
+
+    .message-body{
+
+        max-width:100%;
+
+    }
+
+}
+/* =====================================================
+   PDF Summary Module
+===================================================== */
+
+.pdf-layout{
+
+    display:grid;
+
+    gap:25px;
+
+}
+
+.upload-area{
+
+    min-height:280px;
+
+    border:2px dashed rgba(93,169,255,.35);
+
+    border-radius:22px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    padding:35px;
+
+    transition:.35s;
+
+}
+
+.upload-area:hover{
+
+    border-color:var(--primary);
+
+    background:rgba(93,169,255,.05);
+
+}
+
+.upload-icon{
+
+    font-size:70px;
+
+    color:#ff5c7c;
+
+    margin-bottom:20px;
+
+}
+
+.file-info{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px;
+
+    margin-top:15px;
+
+    border-radius:15px;
+
+    background:rgba(255,255,255,.05);
+
+}
+
+.summary-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.summary-output{
+
+    min-height:250px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    line-height:1.8;
+
+    color:var(--text-light);
+
+    white-space:pre-wrap;
+
+}
+
+@media(max-width:768px){
+
+    .summary-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+    .summary-header button{
+
+        width:100%;
+
+    }
+
+}
+.gpa-result-card{
+
+    margin-top:20px;
+
+    padding:20px;
+
+    border-radius:16px;
+
+    text-align:center;
+
+    background:rgba(255,255,255,.08);
+
+    backdrop-filter:blur(10px);
+
+}
+
+#gpaResult{
+
+    display:block;
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    margin-top:10px;
+
+}
+
+
+
+
+/*ai.   */
+
+
+
+.message{
+
+    animation:
+
+    fadeUp .35s ease;
+
+}
+
+@keyframes fadeUp{
+
+    from{
+
+        opacity:0;
+
+        transform:
+
+        translateY(20px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:
+
+        translateY(0);
+
+    }
+
+}
+
+.message-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:8px;
+
+}
+
+.message-time{
+
+    font-size:12px;
+
+    opacity:.6;
+
+}
+
+.copy-message{
+
+    margin-top:12px;
+
+    padding:8px 14px;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+}
+
+#loader{
+position:fixed;
+inset:0;
+background:#05070d;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:999999;
+transition:.8s;
+}
+
+.loader-logo{
+
+font-size:42px;
+font-weight:700;
+letter-spacing:4px;
+
+background:linear-gradient(90deg,#00e5ff,#ffffff,#00e5ff);
+
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+
+animation:pulse 2s infinite;
+
+}
+
+.loader-ring{
+
+width:90px;
+height:90px;
+
+border:4px solid rgba(255,255,255,.15);
+
+border-top:4px solid cyan;
+
+border-radius:50%;
+
+margin:30px;
+
+animation:spin 1s linear infinite;
+
+}
+
+#loader p{
+
+opacity:.8;
+
+font-size:15px;
+
+}
+
+@keyframes spin{
+
+100%{
+transform:rotate(360deg);
+}
+
+}
+
+@keyframes pulse{
+
+50%{
+transform:scale(1.08);
+}
+
+}
+#toastContainer{
+
+position:fixed;
+
+top:20px;
+
+right:20px;
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+z-index:99999;
+
+}
+
+.toast{
+
+min-width:280px;
+
+padding:16px 20px;
+
+border-radius:14px;
+
+background:rgba(18,22,35,.95);
+
+backdrop-filter:blur(18px);
+
+color:#fff;
+
+font-size:15px;
+
+box-shadow:0 10px 35px rgba(0,0,0,.35);
+
+animation:toastIn .4s ease;
+
+border-left:5px solid cyan;
+
+}
+
+.toast.success{
+
+border-left-color:#00ff88;
+
+}
+
+.toast.error{
+
+border-left-color:#ff4d4f;
+
+}
+
+.toast.warning{
+
+border-left-color:#ffb300;
+
+}
+
+@keyframes toastIn{
+
+from{
+
+opacity:0;
+
+transform:translateX(120px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateX(0);
+
+}
+
+}
+
+
+
+
+
+
+
+#noteContent {
+    min-height: 350px;
+    padding: 18px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 16px;
+    background: rgba(255,255,255,.05);
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.7;
+    outline: none;
+    overflow-y: auto;
+    white-space: pre-wrap;
+}
+
+#noteContent:empty::before {
+    content: attr(data-placeholder);
+    color: rgba(255,255,255,.45);
+    pointer-events: none;
+}
+
+
+/* ===========================
+   User Profile Card
+=========================== */
+
+.user-profile{
+
+display:flex;
+align-items:center;
+
+gap:16px;
+
+padding:18px;
+
+margin:20px;
+
+border-radius:22px;
+
+background:rgba(255,255,255,.08);
+
+backdrop-filter:blur(20px);
+
+-webkit-backdrop-filter:blur(20px);
+
+border:1px solid rgba(255,255,255,.12);
+
+box-shadow:
+
+0 8px 30px rgba(0,0,0,.35);
+
+transition:.35s;
+
+}
+
+.user-profile:hover{
+
+transform:translateY(-3px);
+
+box-shadow:
+
+0 14px 40px rgba(0,0,0,.45);
+
+}
+
+.avatar{
+
+width:64px;
+
+height:64px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:26px;
+
+font-weight:700;
+
+background:linear-gradient(
+135deg,
+#5f9cff,
+#8b5cf6
+);
+
+color:#fff;
+
+}
+
+.user-info h3{
+
+margin:0;
+
+font-size:20px;
+
+color:#fff;
+
+}
+
+.user-info p{
+
+margin:6px 0;
+
+color:#cfd8e8;
+
+font-size:14px;
+
+}
+
+#userRole{
+
+display:inline-block;
+
+padding:5px 12px;
+
+border-radius:30px;
+
+font-size:12px;
+
+background:#2d7cff;
+
+color:white;
+
+}
