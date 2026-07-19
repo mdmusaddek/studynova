@@ -29,7 +29,10 @@ const USERS_FILE = path.join(__dirname, "auth", "users.json");
 // ----------------------------
 
 app.use(cors({
-    origin: true,
+    origin: [
+        "https://mdmusaddek.github.io",
+        "http://localhost:3000"
+    ],
     credentials: true
 }));
 
@@ -40,7 +43,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000 * 60 * 60 * 24 * 7
+        maxAge: 1000 * 60 * 60 * 24 * 7,
+    sameSite: "none",
+    secure: true
     }
 }));
 
