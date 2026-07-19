@@ -27,7 +27,7 @@ async function checkLogin(){
 
         if(!data.success){
 
-            window.location.href = "login.html";
+            window.location.href = "index.html";
 
             return false;
 
