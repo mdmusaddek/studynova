@@ -7,14 +7,71 @@
 // ============================
 // User Profile
 // ============================
+// ============================
+// Login Check
+// ============================
+
+async function checkLogin(){
+
+    try{
+
+        const response = await fetch(
+            "https://studynova-jyrg.onrender.com/api/me",
+            {
+                credentials:"include"
+            }
+        );
+
+        const data = await response.json();
+
+
+        if(!data.success){
+
+            window.location.href = "login.html";
+
+            return false;
+
+        }
+
+
+        console.log(
+            "Logged User:",
+            data.user
+        );
+
+
+        localStorage.setItem(
+            "nova_user",
+            JSON.stringify(data.user)
+        );
+
+
+        return true;
+
+
+    }catch(error){
+
+        console.log(error);
+
+        window.location.href="login.html";
+
+        return false;
+
+    }
+
+}
+
+
+checkLogin();
+
+
 
 const user =
 JSON.parse(
 localStorage.getItem("nova_user")
 );
 
-const isGuest =
-localStorage.getItem("nova_guest") === "true";
+
 
 const nameElement =
 document.getElementById("userName");
