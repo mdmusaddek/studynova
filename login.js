@@ -1,4 +1,4 @@
-const API = "http://127.0.0.1:3000";
+const API = "https://studynova-jyrg.onrender.com";
 
 let isLogin = false;
 
@@ -128,19 +128,36 @@ button.onclick = async () => {
 
             }
 
-            localStorage.setItem(
-                "nova_user",
-                JSON.stringify(result.user)
-            );
-localStorage.removeItem("nova_guest");
             statusText.style.color = "#72ff9d";
-            statusText.innerText = "Login successful.";
+statusText.innerText = "Login successful.";
 
-            setTimeout(() => {
+setTimeout(async () => {
 
-                window.location.href = "index.html";
+    const check = await fetch(`${API}/api/me`, {
+        credentials: "include"
+    });
 
-            }, 700);
+    const me = await check.json();
+
+    if (me.success) {
+
+        localStorage.setItem(
+            "nova_user",
+            JSON.stringify(me.user)
+        );
+
+        localStorage.removeItem("nova_guest");
+
+        window.location.href = "./index.html";
+
+    } else {
+
+        statusText.style.color = "#ff7b7b";
+        statusText.innerText = "Session was not created.";
+
+    }
+
+}, 500);
 
         }
 
@@ -213,16 +230,6 @@ localStorage.removeItem("nova_guest");
 // Guest Mode
 // ----------------------
 
-guestBtn.onclick = () => {
-
-    localStorage.setItem(
-        "nova_guest",
-        "true"
-    );
-
-    window.location.href = "index.html";
-
-};
 // ----------------------
 // Auto Login
 // ----------------------
@@ -247,7 +254,7 @@ window.addEventListener("load", async () => {
                 JSON.stringify(result.user)
             );
 
-            window.location.href = "index.html";
+            window.location.href = "./index.html";
 
         }
 
@@ -274,6 +281,6 @@ guestBtn.onclick = () => {
         "true"
     );
 
-    window.location.href = "index.html";
+    window.location.href = "./index.html";
 
 };
