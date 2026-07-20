@@ -65,6 +65,10 @@ async function checkLogin(){
 checkLogin();
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> abe6f48 (Fix login session and auth flow)
 
 const user =
 JSON.parse(
