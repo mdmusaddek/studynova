@@ -27,7 +27,7 @@ async function checkLogin(){
 
         if(!data.success){
 
-            window.location.href = "index.html";
+            window.location.href = "login.html";
 
             return false;
 
@@ -64,11 +64,6 @@ async function checkLogin(){
 
 checkLogin();
 
-
-<<<<<<< HEAD
-=======
-
->>>>>>> abe6f48 (Fix login session and auth flow)
 
 const user =
 JSON.parse(
