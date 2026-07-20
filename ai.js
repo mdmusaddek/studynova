@@ -152,14 +152,14 @@ async function sendMessage(){
     showTyping();
 
     try{
-const me = await fetch("http://127.0.0.1:3000/api/me", {
+const me = await fetch(API + "/api/me", {
     credentials: "include"
 });
 
 console.log(await me.text());
         const response =
 await fetch(
-    "http://127.0.0.1:3000/api/chat",
+    API + "/api/chat",
             {
                 method:"POST",
 
