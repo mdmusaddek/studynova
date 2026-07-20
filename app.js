@@ -1,31 +1,39 @@
+"use strict";
+
 /* =====================================================
-   NovaOS Lite
-   app.js
-   Core Application Controller
+   StudyNova App
+   Core Controller
 ===================================================== */
 
-// ============================
-// User Profile
-// ============================
-// ============================
-// Login Check
-// ============================
+const API = "https://studynova-jyrg.onrender.com";
 
-async function checkLogin(){
+/* ===============================
+   Login Check
+================================ */
 
-    try{
+async function checkLogin() {
+
+    const guest =
+        localStorage.getItem("nova_guest") === "true";
+
+    if (guest) {
+        return true;
+    }
+
+    try {
 
         const response = await fetch(
-            "https://studynova-jyrg.onrender.com/api/me",
+            API + "/api/me",
             {
-                credentials:"include"
+                credentials: "include"
             }
         );
 
         const data = await response.json();
 
+        if (!data.success) {
 
-        if(!data.success){
+            localStorage.removeItem("nova_user");
 
             window.location.href = "login.html";
 
@@ -33,27 +41,22 @@ async function checkLogin(){
 
         }
 
-
-        console.log(
-            "Logged User:",
-            data.user
-        );
-
-
         localStorage.setItem(
             "nova_user",
             JSON.stringify(data.user)
         );
 
-
         return true;
 
+    }
 
-    }catch(error){
+    catch (err) {
 
-        console.log(error);
+        console.log(err);
 
-        window.location.href="login.html";
+        localStorage.removeItem("nova_user");
+
+        window.location.href = "login.html";
 
         return false;
 
@@ -61,17 +64,33 @@ async function checkLogin(){
 
 }
 
+/* ===============================
+   App Start
+================================ */
 
-checkLogin();
+(async () => {
+
+    const ok = await checkLogin();
+
+    if (!ok) return;
+
+    startApp();
+
+})();
+
+function startApp() {
+
 const isGuest =
-    localStorage.getItem("nova_guest") === "true";
+localStorage.getItem("nova_guest") === "true";
 
 const user =
 JSON.parse(
 localStorage.getItem("nova_user")
 );
 
-
+/* ===============================
+   User Profile
+================================ */
 
 const nameElement =
 document.getElementById("userName");
@@ -84,6 +103,13 @@ document.getElementById("userRole");
 
 const avatarElement =
 document.getElementById("userAvatar");
+
+if (
+nameElement &&
+emailElement &&
+roleElement &&
+avatarElement
+){
 
 if(isGuest){
 
@@ -108,9 +134,11 @@ user.name.charAt(0).toUpperCase();
 
 if(user.is_admin){
 
-roleElement.textContent="Administrator";
+roleElement.textContent=
+"Administrator";
 
-roleElement.style.background="#ff9800";
+roleElement.style.background=
+"#ff9800";
 
 }
 
@@ -122,269 +150,284 @@ roleElement.textContent="User";
 
 }
 
+}
 
+/* ===============================
+   Loader
+================================ */
 
+window.addEventListener("load",()=>{
 
+const loader =
+document.getElementById("loader");
 
-"use strict";
+if(!loader) return;
 
-/* ==========================================
+setTimeout(()=>{
+
+loader.style.opacity="0";
+
+setTimeout(()=>{
+
+loader.style.display="none";
+
+},500);
+
+},1000);
+
+});
+/* ===============================
    Elements
-========================================== */
+================================ */
 
-const pages = document.querySelectorAll(".page");
+const pages =
+document.querySelectorAll(".page");
 
-const navButtons = document.querySelectorAll(".nav-btn");
+const navButtons =
+document.querySelectorAll(".nav-btn");
 
-const cardButtons = document.querySelectorAll("[data-page]");
+const pageTitle =
+document.getElementById("pageTitle");
 
-const pageTitle = document.getElementById("pageTitle");
+const themeButton =
+document.querySelector(".theme-btn");
 
-const themeButton = document.querySelector(".theme-btn");
+const cardButtons =
+document.querySelectorAll("[data-page]");
 
-/* ==========================================
-   Titles
-========================================== */
+/* ===============================
+   Page Titles
+================================ */
 
 const pageTitles = {
 
-    dashboard: "Dashboard",
+dashboard:"Dashboard",
 
-    notes: "Notes",
+notes:"Notes",
 
-    gpa: "GPA Calculator",
+gpa:"GPA Calculator",
 
-    cgpa: "CGPA Calculator",
+cgpa:"CGPA Calculator",
 
-    chat: "AI Chat",
+chat:"AI Chat",
 
-    pdf: "PDF Summary"
+pdf:"PDF Summary"
 
 };
 
-/* ==========================================
+/* ===============================
    Open Page
-========================================== */
+================================ */
 
-function openPage(pageId){
+function openPage(page){
 
-    pages.forEach(page=>{
+pages.forEach(p=>{
 
-        page.classList.remove("active");
-
-    });
-
-    const target=document.getElementById(pageId);
-
-    if(target){
-
-        target.classList.add("active");
-
-    }
-
-    navButtons.forEach(btn=>{
-
-        btn.classList.remove("active");
-
-        if(btn.dataset.page===pageId){
-
-            btn.classList.add("active");
-
-        }
-
-    });
-
-    if(pageTitle){
-
-        pageTitle.textContent=
-
-        pageTitles[pageId] ||
-
-        "NovaOS Lite";
-
-    }
-
-}
-
-/* ==========================================
-   Navigation
-========================================== */
-
-cardButtons.forEach(button=>{
-
-    button.addEventListener("click",()=>{
-
-        const page=
-
-        button.dataset.page;
-
-        if(page){
-
-            openPage(page);
-
-        }
-
-    });
+p.classList.remove("active");
 
 });
 
-/* ==========================================
-   Theme
-========================================== */
+const target =
+document.getElementById(page);
 
-function loadTheme(){
+if(target){
 
-    const saved=
-
-    localStorage.getItem("nova-theme");
-
-    if(saved==="light"){
-
-        document.body.classList.add("light");
-
-    }
+target.classList.add("active");
 
 }
 
-loadTheme();
+navButtons.forEach(btn=>{
+
+btn.classList.remove("active");
+
+if(btn.dataset.page===page){
+
+btn.classList.add("active");
+
+}
+
+});
+
+if(pageTitle){
+
+pageTitle.textContent =
+pageTitles[page] || "StudyNova";
+
+}
+
+}
+
+/* ===============================
+   Navigation
+================================ */
+
+navButtons.forEach(btn=>{
+
+btn.onclick=()=>{
+
+openPage(btn.dataset.page);
+
+};
+
+});
+
+cardButtons.forEach(btn=>{
+
+btn.onclick=()=>{
+
+const page =
+btn.dataset.page;
+
+if(page){
+
+openPage(page);
+
+}
+
+};
+
+});
+
+/* ===============================
+   Theme
+================================ */
+
+const savedTheme =
+localStorage.getItem("nova-theme");
+
+if(savedTheme==="light"){
+
+document.body.classList.add("light");
+
+}
 
 themeButton?.addEventListener("click",()=>{
 
-    document.body.classList.toggle("light");
+document.body.classList.toggle("light");
 
-    const mode=
+localStorage.setItem(
 
-    document.body.classList.contains("light")
+"nova-theme",
 
-    ? "light"
+document.body.classList.contains("light")
 
-    : "dark";
+?
 
-    localStorage.setItem(
+"light"
 
-        "nova-theme",
+:
 
-        mode
+"dark"
 
-    );
+);
 
 });
 
-/* ==========================================
-   Dashboard Numbers
-========================================== */
+/* ===============================
+   Dashboard
+================================ */
 
 function updateDashboard(){
 
-    const totalNotes=
+const notes =
 
-    JSON.parse(
+JSON.parse(
 
-        localStorage.getItem("nova-notes")
+localStorage.getItem("nova-notes")
 
-        || "[]"
+||
 
-    ).length;
+"[]"
 
-    document.getElementById(
+);
 
-        "totalNotes"
+const totalNotes =
+document.getElementById("totalNotes");
 
-    ).textContent=
+if(totalNotes){
 
-    totalNotes;
+totalNotes.textContent =
+notes.length;
+
+}
 
 }
 
 updateDashboard();
 
-/* ==========================================
+/* ===============================
    Keyboard Shortcut
-========================================== */
+================================ */
 
 document.addEventListener(
 
 "keydown",
 
-(event)=>{
+e=>{
 
-if(event.ctrlKey && event.key==="1"){
+if(e.ctrlKey && e.key==="1")
 
 openPage("dashboard");
 
-}
-
-if(event.ctrlKey && event.key==="2"){
+if(e.ctrlKey && e.key==="2")
 
 openPage("notes");
 
-}
-
-if(event.ctrlKey && event.key==="3"){
+if(e.ctrlKey && e.key==="3")
 
 openPage("gpa");
 
-}
-
-if(event.ctrlKey && event.key==="4"){
+if(e.ctrlKey && e.key==="4")
 
 openPage("cgpa");
 
-}
-
-if(event.ctrlKey && event.key==="5"){
+if(e.ctrlKey && e.key==="5")
 
 openPage("chat");
 
-}
-
-if(event.ctrlKey && event.key==="6"){
+if(e.ctrlKey && e.key==="6")
 
 openPage("pdf");
 
 }
 
-}
-
-/* ==========================================
-   Init
-========================================== */
-
 );
 
 openPage("dashboard");
+/* ===============================
+   Toast
+================================ */
 
-window.addEventListener("load",function(){
+function showToast(message,type="success"){
 
-setTimeout(function(){
+const container=
+document.getElementById("toastContainer");
 
-document.getElementById("loader").style.opacity="0";
+if(!container)return;
 
-setTimeout(function(){
+const toast=
+document.createElement("div");
 
-document.getElementById("loader").style.display="none";
+toast.className=
+"toast "+type;
 
-},800);
+toast.textContent=
+message;
 
-},1800);
+container.appendChild(toast);
 
-});
-function showToast(message, type = "success") {
+setTimeout(()=>{
 
-    const container = document.getElementById("toastContainer");
+toast.remove();
 
-    if (!container) {
-        console.error("toastContainer not found");
-        return;
-    }
+},3500);
 
-    const toast = document.createElement("div");
-    toast.className = "toast " + type;
-    toast.textContent = message;
-
-    container.appendChild(toast);
-
-    setTimeout(() => {
-        toast.remove();
-    }, 3500);
 }
+
+/* ===============================
+   App Ready
+================================ */
+
+console.log("StudyNova Loaded Successfully");
+
+} // <-- startApp() ends here
