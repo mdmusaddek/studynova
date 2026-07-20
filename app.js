@@ -63,7 +63,8 @@ async function checkLogin(){
 
 
 checkLogin();
-
+const isGuest =
+    localStorage.getItem("nova_guest") === "true";
 
 const user =
 JSON.parse(
