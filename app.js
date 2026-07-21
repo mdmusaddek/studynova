@@ -68,15 +68,7 @@ async function checkLogin() {
    App Start
 ================================ */
 
-(async () => {
-
-    const ok = await checkLogin();
-
-    if (!ok) return;
-
-    startApp();
-
-})();
+startApp();
 
 function startApp() {
 
