@@ -139,7 +139,7 @@ function addMessage(role, text){
 /* ---------- Send ---------- */
 
 async function sendMessage(){
-
+console.log("SEND BUTTON WORKING");
     const text =
     chatInput.value.trim();
 
