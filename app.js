@@ -5,7 +5,7 @@
    Core Controller
 ===================================================== */
 
-const API = "https://studynova-jyrg.onrender.com";
+window.API = "https://studynova-jyrg.onrender.com";
 
 /* ===============================
    Login Check
