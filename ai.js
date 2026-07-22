@@ -1,5 +1,5 @@
 "use strict";
-console.log("AI.JS LOADED");
+alert("AI.JS LOADED");
 /* ==========================================
    Nova AI
    Part 1
