@@ -5,7 +5,7 @@ alert("AI.JS LOADED");
    Part 1
 ========================================== */
 
-const API = "https://studynova-jyrg.onrender.com";
+const API = window.API;
 
 const chatWindow =
 document.getElementById("chatWindow");
