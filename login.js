@@ -1,4 +1,4 @@
-const API = "https://studynova-jyrg.onrender.com";
+const API = window.API;
 
 let isLogin = false;
 
